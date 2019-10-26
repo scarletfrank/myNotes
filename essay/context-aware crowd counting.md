@@ -39,3 +39,4 @@ f_I = [f_v | \frac {\sum_{j=1}^S w_j \bigodot s_j } {\sum_{j=1}^S w_j}] \; (5)
 ```mathjax
 L({\theta}) = \frac {1} {2B} \sum_{i=1}^B || D_i^{st} - D_i^{est} || _2^2
 ```
+$$ L({\theta}) = \frac {1} {2B} \sum_{i=1}^B || D_i^{st} - D_i^{est} || _2^2 $$

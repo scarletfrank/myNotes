@@ -38,3 +38,10 @@ Practice Problem done at September 19th
 ```c
 printf("%d\n", 200 * 300 * 400 * 500) // -884901888
 ```
+*little endian*: where the least significant byte comes first
+*big endian*: where the most significant byte comes first
+
+At times, however, byte ordering becomes an issue:
+- When binary data are communicated over a network between different machines
+- Where byte ordering becomes important is when looking at the byte sequences representing integer data.
+- A third case where byte ordering becomes visible is when programs are written that circumvent the normal type system
