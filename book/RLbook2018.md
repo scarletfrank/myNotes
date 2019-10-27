@@ -33,9 +33,9 @@ Most of the reinforcement learning methods we consider in this book are structur
 *Initialization*: for all states with three Xs in a row the probability of winnning is 1, three Os in a row ... is 0, others is 0.5
 *Moving*: "Most of the time, we move *greedily*. Occasionally, we select randomly from among the other moves instead.(*exploratory*)
 *Playing*: change the values of the states according to
-```mathjax
-V(S_t) \leftarrow V(S_t) + \alpha [V(S_{t+1}) - V(S_t)]
-```
+
+$$V(S_t) \leftarrow V(S_t) + \alpha [V(S_{t+1}) - V(S_t)]$$
+
 α is a small positive fraction called the *step-size parameter*. This update rule is an example of a *temporal-difference* learning method
 
 > In the end, evolutionary and value function methods both search the space of policies, but learning a value function takes advantage of information available during the course of play
@@ -55,50 +55,38 @@ TBD
 > The most important feature distinguishing reinforcement learning from other types of learning is that it uses training information that *evaluates* the actions taken rather than *instructs* by giving correct actions.
 > The particular *nonassociative*, evaluative feedback problem that we explore is a simple version of the *k*-armed bandit problem.
 
-```mathjax
-q_*(a) = E [ {\it R_t } | A_t = a] 
-```
+$$q_*(a) = E [ {\it R_t } | A_t = a] $$
 **Balancing exploration and exploitation**
 #### Action-value Methods
 - averaging the rewards actually received
-```mathjax
-Q_t(a) = TBD
-```
+
+$$Q_t(a) = TBD$$
+
 sum of rewards when a taken prior to t / number of times a taken prior to t
 - *greedy* action selection method:
-```mathjax
-A_t = \underset {a} {argmax} Q_t(a)
-```
+
+$$A_t = \underset {a} {argmax} Q_t(a)$$
+
 - *sigma-greedy* method
 with small probability sigma, instead select randomly from among all the actions with equal probability, independently of the action-value estimates
 #### Incremental Implementation
-```mathjax
-Q_{n+1} = Q_n + \frac 1 n [R_n - Q_n] \\
-NewEstimate \leftarrow OldEstimate + StepSize [Target - OldEstimate]
-```
+
+$$Q_{n+1} = Q_n + \frac 1 n [R_n - Q_n] \\ NewEstimate \leftarrow OldEstimate + StepSize [Target - OldEstimate]$$
+
 **A simple bandit algorithm**
-```mathjax
-\it \text {Initialize, for a = 1 to k} \\
-Q(a) \leftarrow 0 \\
-N(a) \leftarrow 0 \\
-Loop forever \\
-A \leftarrow TBD \\
-R \leftarrow \it bandit(A) \\
-N(A) \leftarrow N(A) + 1 \\
-Q(A) \leftarrow Q(A) + \frac 1 N(A) [R - Q(A)]
-```
+
+$$  \text {Initialize, for a = 1 to k} \\ Q(a) \leftarrow 0 \\ N(a) \leftarrow 0 \\Loop forever \\A \leftarrow TBD \\ R \leftarrow \it bandit(A) \\ N(A) \leftarrow N(A) + 1 \\ Q(A) \leftarrow Q(A) + \frac 1 N(A) [R - Q(A)]$$
 #### Tracking a Nonstationary Problem
 *exponential recency-weighted average*
-```mathjax
-Q_{n+1} = Q_n + \alpha [R_n - Q_n] \\
-Q_{n+1} = {(1-\alpha)}^n Q_1 + \sum_{i=1}^n \alpha {(1-\alpha)}^{n-i} R_i
-```
+
+$$Q_{n+1} = Q_n + \alpha [R_n - Q_n] \\ Q_{n+1} = {(1-\alpha)}^n Q_1 + \sum_{i=1}^n \alpha {(1-\alpha)}^{n-i} R_i$$
+
 #### Optimistic Initial Values
 Initial action values can also be used as a simple way to encourage exploration.
 #### Upper-Confidence-Bound Action Selection
-```mathjax
-A_t = \underset {a} {argmax} \{  Q_t(a) + c \sqrt {\frac {\ln t} {N_t(a)}} \}
-```
+
+$$A_t = \underset {a} {argmax} \{  Q_t(a) + c \sqrt {\frac {\ln t} {N_t(a)}} \}$$
+
 #### Gradient Bandit Algorithms
 > learning a numerical *preference* for each action a, which we denote *H_t(a)*
 
@@ -108,8 +96,10 @@ Proof TBD
 
 #### Associative Search(Contextual Bandits)
 Nonassociative tasks, that is, tasks in which there is no need to associate different actions with different situations.
+
 #### Exersice
 *2.1* sigma=0.5, for the case of two actions, what is the probability that the greedy action is selected? 0.5
+
 **The 10-armed Testbed**
 *2.6 Mysterious Spikes*
 *2.7 Unbiased Constant-Step-Size Trick*
@@ -119,10 +109,10 @@ Nonassociative tasks, that is, tasks in which there is no need to associate diff
 
 #### The Agent-Environment Interface
 The MDP and agent together thereby give rise to a sequence or *trajectory* that begins like this:
-```mathjax
-S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3,... (3.1) \\
-p(s', r | s, a) \dot = Pr \{ S_t = s' , R_t = r | S_{t-1} = s, A_{t-1} = a \} (3.2)
-```
+
+$$S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3,... (3.1) \\
+p(s', r | s, a) \dot = Pr \{ S_t = s' , R_t = r | S_{t-1} = s, A_{t-1} = a \} (3.2)$$
+
 The function *p* defines the *dynamics* of the MDP. The dot over the equals sign in the equation reminds us that is a definition (in this case of the fcuntion *p*) rather than a fact that follows from previous definitions.
 *Markov property*
 From the four-argument dynamics function, p, one can compute anything else one might want to know about the environment:
@@ -140,45 +130,45 @@ The agent-environment boundary represents the limit of the agent's *absolute con
 simplest case the return is the sum of the rewards, where T is a final time step. 
 ~ when the agent-environment interaction breaks naturally into subsequences, which we call *episodes*, such as plays of a game, trips through a maze, or any sort of repeated interaction.
 Each episode ends in a *terminal state*.
-```mathjax
-G_t \dot = R_{t+1} + R_{t+2} + R_{t+3} + ... + R_T
-```
+
+$$G_t \dot = R_{t+1} + R_{t+2} + R_{t+3} + ... + R_T$$
+
 (2) *discounted return*
-\gamma is discount rate
-```mathjax
-G_t \dot = R_{t+1} + \gamma R_{t+2} + \gamma ^ 2 R_{t+3} + ... = \sum_{k=0}^{\inf} {\gamma}^k R_{t+k+1}
-```
+$\gamma$ is discount rate
+
+$$G_t \dot = R_{t+1} + \gamma R_{t+2} + \gamma ^ 2 R_{t+3} + ... = \sum_{k=0}^{\inf} {\gamma}^k R_{t+k+1}$$
+
 (3) Pole-Balancing Example
 episodic task or continuing task
 #### Unified Notation for Episodic and Continuing Tasks
-```mathjax
-G_t \dot = \sum_{k=t+1}^T {\gamma}^{k-t-1} R_k 
-```
-including the possbility that T = \inf or \gamma = 1 (but not both)
+
+$$G_t \dot = \sum_{k=t+1}^T {\gamma}^{k-t-1} R_k $$
+
+including the possbility that T = $\inf$ or $\gamma$ = 1 (but not both)
+
 #### Policies and Value Functions
 *value functions* - functions of states (or of state-action pairs) that estimate *how good* it is for the agent to be in a given state (or how good it is to perform a given action in a given state). Accordingly, value functions are defined with respect to particular ways of acting, called policies.
 
 a *policy* is a mapping from states to probabilities of selecting each possible action.
 The *value function* of a state s under a policy pi, denoted as v_pi(s), is the expected return when starting in s and following pi thereafter. 
 *action-value function*: Similarly, we define the value of taking action a in state s under a policy pi, denoted as q_pi(s, a), as the expected return starting from s, taking the action a, and thereafter following policy pi
-```mathjax
-v_{\pi}(s) \dot = E_{\pi}[G_t | S_t = s] = TBD \\
-q_{\pi}(s, a) \dot = E_{\pi} [G_t | S_t = s, A_t = a] = TBD
-```
+
+$$v_{\pi}(s) \dot = E_{\pi}[G_t | S_t = s] = TBD \\ q_{\pi}(s, a) \dot = E_{\pi} [G_t | S_t = s, A_t = a] = TBD$$
+
 *Monte Carlo methods* : averaging over many random samples of actual returns
 estimate v_pi(s) and q_pi(s, a)
 *Bellman equation for v_pi* It expresses a relationship between the value of a state and the values of its successor states.
-```mathjax
-v_{\pi} (s) = \sum_{s', r} p(s' , r | s, a) [r + \gamma v_{\pi} (s')]
-```
+
+$$v_{\pi} (s) = \sum_{s', r} p(s' , r | s, a) [r + \gamma v_{\pi} (s')]$$
+
 **Backup diagram for v_pi** : Because they diagram relationships that form the basis of the update or *backup* operations. These operations transfer value information *back* to a state(or a state-action pair) from its successor states (or state-action pairs).
 Exercise TBD
+
 #### Optimal Policies and Optimal Value Functions
 **Bellman optimality equation for v_star and q_star**
-```mathjax
- v_*(s) = \max_{a} \sum_{s', r} p(s', r | s, a) [ r+ \gamma v_*(s') ] \\
- q_*(s, a) = \sum_{s', r} p(s', r| s, a)[r+\gamma \max_{a'} q_*(s', a')]
-```
+
+$$v_*(s) = \max_{a} \sum_{s', r} p(s', r | s, a) [ r+ \gamma v_*(s') ] \\ q_*(s, a) = \sum_{s', r} p(s', r| s, a)[r+\gamma \max_{a'} q_*(s', a')]$$
+
 #### Optimality and Approximation
 The online nature of reinforcement learning makes it possible to approximate optimal policies in ways that put more effort into learning to make good decisions for frequently encountered states, at the expense of less effort for infrequently encountered states. This is one key property that distinguishes reinforcement learning from other approaches to approximately solving MDPs.
 ### Dynamic Programming
