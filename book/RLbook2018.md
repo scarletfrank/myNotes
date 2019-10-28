@@ -1,12 +1,15 @@
 # Book Notes
 *Reinforcement Learning: An Introduction second edition*
+
 ## Structure
 - Introduction
 - Tabular Solution Methods
 - Approximate Solution Methods
 - Looking Deeper
 > Tabular, arranged in a table or in columns and rows
+
 ### Introduction
+
 #### Definition of RL
 - a *computational* approach to learning from interaction
 - RL is much more focused on goal-directed learning from interaction than are other approaches to machine learning
@@ -16,6 +19,7 @@ different from supervised learning and unsupervised learning
 > unsupervised learning, which is typically about finding structure hidden in collections of unlabeled data
 
 One of the challenges thath arise in RL, is the trade-off between **exploration** and **exploitation**. The agent has to *exploit* what it has already experienced in order to obtain reward, but it also has to *explore* in order to make better action selections in the future.
+
 #### Elements of RL
 the agent and the environment.
 *a policy, a reward signal, a value function and a model of the environment*
@@ -23,6 +27,7 @@ Whereas the reward signal indicates what is good in an immediate sense, a *value
 
 #### Limitations and scope
 Most of the reinforcement learning methods we consider in this book are structured around estimating value functions, but evolutionary methods never estimate value functions.
+
 #### Example: Tic-Tac-Toe
 > Classical techniques and evolutionary method cannot solve this problem in a satisfactory way
 > "minimax" solution from game theory assumes a particular way of playing by the opponent
@@ -50,13 +55,16 @@ $$V(S_t) \leftarrow V(S_t) + \alpha [V(S_{t+1}) - V(S_t)]$$
 - *Other Improvements*
 #### Early History
 TBD
+
 ## Tabular Solution Methods
+
 ### Multi-armed Bandits
 > The most important feature distinguishing reinforcement learning from other types of learning is that it uses training information that *evaluates* the actions taken rather than *instructs* by giving correct actions.
 > The particular *nonassociative*, evaluative feedback problem that we explore is a simple version of the *k*-armed bandit problem.
 
 $$q_*(a) = E [ {\it R_t } | A_t = a] $$
 **Balancing exploration and exploitation**
+
 #### Action-value Methods
 - averaging the rewards actually received
 
@@ -69,13 +77,15 @@ $$A_t = \underset {a} {argmax} Q_t(a)$$
 
 - *sigma-greedy* method
 with small probability sigma, instead select randomly from among all the actions with equal probability, independently of the action-value estimates
+
 #### Incremental Implementation
 
 $$Q_{n+1} = Q_n + \frac 1 n [R_n - Q_n] \\ NewEstimate \leftarrow OldEstimate + StepSize [Target - OldEstimate]$$
 
 **A simple bandit algorithm**
 
-$$  \text {Initialize, for a = 1 to k} \\ Q(a) \leftarrow 0 \\ N(a) \leftarrow 0 \\Loop forever \\A \leftarrow TBD \\ R \leftarrow \it bandit(A) \\ N(A) \leftarrow N(A) + 1 \\ Q(A) \leftarrow Q(A) + \frac 1 N(A) [R - Q(A)]$$
+$$  \text {Initialize, for a = 1 to k} \\ Q(a) \leftarrow 0 \\ N(a) \leftarrow 0 \\ Loop forever \\A \leftarrow TBD \\ R \leftarrow \it bandit(A) \\ N(A) \leftarrow N(A) + 1 \\ Q(A) \leftarrow Q(A) + \frac 1 N(A) [R - Q(A)]$$
+
 #### Tracking a Nonstationary Problem
 *exponential recency-weighted average*
 
@@ -110,8 +120,7 @@ Nonassociative tasks, that is, tasks in which there is no need to associate diff
 #### The Agent-Environment Interface
 The MDP and agent together thereby give rise to a sequence or *trajectory* that begins like this:
 
-$$S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3,... (3.1) \\
-p(s', r | s, a) \dot = Pr \{ S_t = s' , R_t = r | S_{t-1} = s, A_{t-1} = a \} (3.2)$$
+$$S_0, A_0, R_1, S_1, A_1, R_2, S_2, A_2, R_3,... (3.1) \\ p(s', r | s, a) \dot = Pr \{ S_t = s' , R_t = r | S_{t-1} = s, A_{t-1} = a \} (3.2)$$
 
 The function *p* defines the *dynamics* of the MDP. The dot over the equals sign in the equation reminds us that is a definition (in this case of the fcuntion *p*) rather than a fact that follows from previous definitions.
 *Markov property*
@@ -123,8 +132,10 @@ The agent-environment boundary represents the limit of the agent's *absolute con
 - Bioreactor
 - Pick-and-Place Robot
 - Recycling Robot
+
 #### Goals and Rewards
 *reward hypothesis* : That all of what we mean by goals and purposes can be well thought of as the maximization of the expected value of the cumulativesum of a received scalar signal (called reward)
+
 #### Returns and Episodes
 (1) *expected return*
 simplest case the return is the sum of the rewards, where T is a final time step. 
@@ -140,6 +151,7 @@ $$G_t \dot = R_{t+1} + \gamma R_{t+2} + \gamma ^ 2 R_{t+3} + ... = \sum_{k=0}^{\
 
 (3) Pole-Balancing Example
 episodic task or continuing task
+
 #### Unified Notation for Episodic and Continuing Tasks
 
 $$G_t \dot = \sum_{k=t+1}^T {\gamma}^{k-t-1} R_k $$
@@ -167,9 +179,10 @@ Exercise TBD
 #### Optimal Policies and Optimal Value Functions
 **Bellman optimality equation for v_star and q_star**
 
-$$v_*(s) = \max_{a} \sum_{s', r} p(s', r | s, a) [ r+ \gamma v_*(s') ] \\ q_*(s, a) = \sum_{s', r} p(s', r| s, a)[r+\gamma \max_{a'} q_*(s', a')]$$
+$$v_*(s) = \max_{a} \sum_{s',r} p(s', r| s, a) [r+ \gamma v_*(s')] \\ q_*(s, a) = \sum_{s',r} p(s', r| s, a)[r+\gamma \max_{a'} q_*(s', a')]$$
 
 #### Optimality and Approximation
 The online nature of reinforcement learning makes it possible to approximate optimal policies in ways that put more effort into learning to make good decisions for frequently encountered states, at the expense of less effort for infrequently encountered states. This is one key property that distinguishes reinforcement learning from other approaches to approximately solving MDPs.
+
 ### Dynamic Programming
 > Introduction to Algorithms

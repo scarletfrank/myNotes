@@ -29,4 +29,5 @@ in the future.
 
 #### RL
 - [HER]()
-- [Solving Rubikâ€™s Cube with a Robot Hand]()
+- [Learning Dexterous In-Hand Manipulation](https://arxiv.org/abs/1808.00177v5)
+- [SOLVING RUBIK’S CUBE WITH A ROBOT HAND](https://arxiv.org/abs/1910.07113)
