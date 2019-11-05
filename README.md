@@ -28,6 +28,6 @@ in the future.
 - [Focal Loss for Object Detection]()
 
 #### RL
-- [HER]()
+- [HER](https://arxiv.org/pdf/1707.01495)
 - [Learning Dexterous In-Hand Manipulation](https://arxiv.org/abs/1808.00177v5)
-- [SOLVING RUBIK’S CUBE WITH A ROBOT HAND](https://arxiv.org/abs/1910.07113)
+- [Solving Rubikâ€™s Cube with a Robot Hand](https://arxiv.org/abs/1910.07113)

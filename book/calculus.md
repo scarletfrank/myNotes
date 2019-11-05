@@ -1,6 +1,7 @@
 # 高等数学
 > - [Markdown+Math Extension](https://marketplace.visualstudio.com/items?itemName=goessner.mdmath)
 > - [MathJax Site Reference](http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm)
+> changelog: 同济高数第七版和第六版
 ## 函数与极限
 
 ### 映射与函数
@@ -40,12 +41,23 @@ $$ \mathring U (a, \delta) = \{ x | 0 \lt |x-a| \lt \delta \}$$
 
 $$ f \colon X \to Y $$
 $$ f \circ g \colon X \to Z$$
-满射、单射、双射
-逆映射与复合映射
+
+构成映射的三个要素：集合X，即定义域$D_f = X$；集合Y，即值域的范围：$R_f \subset Y$；对应法则，使每个$x \in X$，有唯一确定的$y=f(x)$与之对应
+
+x的像是唯一的，y的原像不一定是唯一的。*满射、单射、双射*
+
+Summary: 映射又称为算子：
+- 从非空集X到数集Y的映射又称为X上的泛函
+- 从非空集X到它自身的映射又称为X上的变换
+- 从实数集（或其子集）X到实数集Y的映射通常称为定义在X上的函数
+
+逆映射，只有单射才存在逆映射 $g \colon R_f \to X$
+
+构成复合映射的条件是：$g$的值域$R_g$必须在$f$的定义域内，即$R_g \in D_f$
 
 #### 函数
 
-*函数概念*
+*函数概念*： $D \subset R$
 
 *函数性质*
 - 有界性
@@ -74,3 +86,52 @@ $$ f \circ g \colon X \to Z$$
 双曲余弦 $ch x = \frac {e^x + e^{-x}} {2}$ 
 
 双曲正切 $th x = \frac {sh x} {ch x} = \frac {e^x - e^{-x}} {e^x + e^{-x}}$
+
+
+### 数列的极限
+
+$$ \lim_{n \to \infty} x_n = a \Longleftrightarrow \forall \varepsilon > 0, \exists \text{ positive integer } N, \text{ when } n>N, |x_n - a | \lt \varepsilon$$
+
+收敛数列的性质：
+- 极限的唯一性
+- 收敛数列的有界性
+
+    如果数列无界，那么数列一定发散。数列有界是数列收敛的必要条件，但不是充分条件
+- 收敛数列的保号性
+
+    推论：如果数列从某项起有大于/小于等于0，且极限也具有同样性质
+- 收敛数列与其子数列间的关系
+
+    如果数列有两个子数列收敛于不同的极限，那么数列是发散的。一个发散的数列也有可能有收敛的子数列
+
+### 函数的极限
+
+自变量的变化过程：
+1. 自变量x任意地接近于有限值或者说趋于有限值时
+2. 自变量x的绝对值无限增大即趋于无穷大时
+    *水平渐近线*
+
+在这个过程中，对应的函数值$f(x)$的变化情形
+
+$$ \lim_{x \to x_0} f(x) = A \Longleftrightarrow \forall \varepsilon > 0, \exists \delta > 0 , \text{ when } 0 < | x-x_0 | < \delta, |f(x) -A| \lt \varepsilon$$
+$$ \lim_{x \to \infty} f(x) = A \Longleftrightarrow \forall \varepsilon > 0, \exists X > 0 , \text{ when } |x| \gt X, |f(x) -A| \lt \varepsilon$$
+
+函数极限的性质
+
+- 函数极限的唯一性
+- 函数极限的局部有界性
+- 函数极限的局部保号性
+- 函数极限与数列极限的关系
+
+### 无穷小与无穷大
+
+- 无穷小
+
+- 无穷大
+    铅直渐近线
+
+### 极限运算法则
+
+1. 两个无穷小的和是无穷小
+2. 有界函数与无穷小的乘积是无穷小
+3. 四则运算法则

@@ -89,6 +89,34 @@ after experiencing some episode $s_0, s_1, \cdots, s_T$ we store in the replay b
 one choice which has to be made in order to use HER is the set of additional goals used for replay.
 
 *simplest* version: $m(s_T)$, i.e. the goal which is achieved in the final state of the episode
+## Experiments
+### Environments
+- Pushing
+- Sliding
+- Pick-and-place
+
+Setting:
+- States
+- Goals
+- Rewards
+- State-goal distributions
+- Observations
+- Actions
+- Strategy
+### Does HER improve performance?
+### Does HER improve performance even if there is only one goal we care about?
+### How does HER interact with reward shaping?
+### How many goals should we replay each trajectory with and how to choose them?
+- *final*
+- *future* 
+- *episode*
+- *random*
+It confirms that the most valuable goals for replay are the ones which are going to be achieved in the near future
+### Deployment on a physical robot
+retrain the policy with gaussian noise added to the observations
+## Related Works
+orthogonal to our work
+## Conclusions
 
 ## After Works
 [HER](https://arxiv.org/pdf/1707.01495)
@@ -97,13 +125,13 @@ one choice which has to be made in order to use HER is the set of additional goa
 
 [Learning Dexterous In-Hand Manipulation](https://arxiv.org/abs/1808.00177v5)
 
-[SOLVING RUBIK’S CUBE WITH A ROBOT HAND](https://arxiv.org/abs/1910.07113)
+[Solving Rubik's Cube with a Robot Hand](https://arxiv.org/abs/1910.07113)
 
 [Blog OpenAI Five](https://openai.com/blog/openai-five/)
 
 [Blog Learning Dexterity](https://openai.com/blog/learning-dexterity/)
 
-[Blog Solving Rubik’s Cube with a Robot Hand](https://openai.com/blog/solving-rubiks-cube/)
+[Blog Solving Rubiks Cube](https://openai.com/blog/solving-rubiks-cube/)
 
 
 

@@ -186,3 +186,33 @@ The online nature of reinforcement learning makes it possible to approximate opt
 
 ### Dynamic Programming
 > Introduction to Algorithms
+
+Classical DP algorithms are of limited utility in reinforcement learning both because of their assumption of a perfect model and because of their great computational expense, but they are still important theoretically.
+
+#### Policy Evaluation (Prediction)
+
+$$ v_{k+1}(s) \dot = \sum_{a} \pi(a|s) \sum_{s', r} p(s', r | s, a) [r+ \gamma v_k(s')]$$
+
+4x4 gridworld example (evaluate random policy)
+
+#### Policy Improvement
+
+*policy improvement theorem*: $q_{\pi '} (s) \geq v_{\pi}(s)$
+
+consider the new *greedy* policy $\pi '$, given by
+
+$$\argmax_a  \sum_{s', r} p(s', r |s, a) [r+ \gamma v_{\pi}(s')]$$
+
+The process of making a new policy that improves on an original policy, by making it greedy with respect to the value function of the original policy, is called *policy improvement*
+
+deterministic => *stochastic case*
+
+#### Policy Iteration
+
+$$\pi_0 \to v_{\pi_0} $$
+
+This way of finding an optimal policy is called *policy iteration*
+
+Example: Jack's Car Rental
+
+#### Value Iteration
