@@ -40,3 +40,13 @@ $$ AGGREGATE_k^{pool} = \max ({\sigma (W_{pool} h_{u_i}^k + b), \forall u_i \in 
 ### Experiments
 four baselines: a random classifier, a logistic regression feature-based classifier, the DeepWalk algorithm as a representative factorization-based approach, and a concatenation of the raw features and DeepWalk embeddings.
 four variants of GraphSAGE that use the different aggregator functions.
+### 问题
+0. 图的构建
+protein图还能根据现实和一定的科学模型构建，而其他...
+1. 图规模的限制
+关注新增还是发掘过去的隐藏异常账户。
+2. 不断变化的异常模式
+新的模式出现的时候，模型不一定能识别。
+3. 复杂度
+
+4. 抗干扰能力 
