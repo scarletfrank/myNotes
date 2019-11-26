@@ -19,7 +19,7 @@ computing attacks based on linearization ideas
 ## Related Work
 **Deep Learning for Graphs**
 **Adversarial Attacks**
-   - poisoning/causative attacks which target the training data (specifically, the model’s training phase is performed after the attack)
+   - poisoning/causative attacks which target the training data (specifically, the modelâ€™s training phase is performed after the attack)
    - evasion/exploratory attacks which target the test data/application phase (here, the learned model is assumed fixed)
 **Generating Adversarial Perturbations**
 **Adversarial Attacks when Learning with Graphs**

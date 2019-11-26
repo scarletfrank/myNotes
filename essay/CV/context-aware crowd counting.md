@@ -16,7 +16,7 @@ s_j = U_{bi} (F_j (P_{ave}(f_v , j), {\theta}_j )) \; (2)
 ```
 Limitation of F_vgg is that it encodes the same receptive field over the entire image. To remedy this, we compute scale-aware features by performing *Spartial Pyramid Pooling* to extract multi-scale context information from the VGG features of (1). 
 Specifically, we compute these scale-aware features as (2), where, for each scale j:
-- P_ave(·, j) averages the VGG features into k(j) x k(j) blocks; 
+- P_ave(Â·, j) averages the VGG features into k(j) x k(j) blocks; 
 - F_j is a convolutional network with kernel size 1 to combine the context features accross channels without changing their dimensions.
 - U_bi represents bilinear interpolation to up-sample the array of contextual features to be of the same size as f_v
 > Practical Hyperparameters: S = 4 different scales, k(j) from {1, 2, 3, 6}

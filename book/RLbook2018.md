@@ -216,3 +216,11 @@ This way of finding an optimal policy is called *policy iteration*
 Example: Jack's Car Rental
 
 #### Value Iteration
+#### Asynchronus Dynamic Programming
+#### Generalized Policy Iteration
+#### Efficiency of Dynamic Programming
+### Monte Carlo Methods
+Monte Carlo methods are ways of solving reinforcement learning problem based on averaging sample returns.
+#### Monte Carlo Prediction
+#### Monte Carlo Estimation of Action Values
+#### Temporal-Difference Learning
