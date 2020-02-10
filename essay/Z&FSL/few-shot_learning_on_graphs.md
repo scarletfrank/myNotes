@@ -1,4 +1,4 @@
-# Few-Shot Leraning on Graphs via Super Classes Based on Graph Spectral Measures
+# Few-Shot Learning on Graphs via Super Classes Based on Graph Spectral Measures
 > ICLR Blind Open Review: Weak Accept x 2, Weak Reject x 1
 > Accept(Poster)
 ## Abstract

@@ -7,7 +7,6 @@
 - Approximate Solution Methods
 - Looking Deeper
 > Tabular, arranged in a table or in columns and rows
-
 ### Introduction
 
 #### Definition of RL
