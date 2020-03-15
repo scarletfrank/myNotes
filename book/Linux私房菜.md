@@ -33,6 +33,28 @@ rwx对于文件和目录
 absolute/relative path
 ### Linux档案与目录管理
 
+## 第三部分 学习Shell与Shell scripts
+
+### 正则化表示法与文件格式处理
+
+#### 知识
+
+```
+vi, grep, awk, sed # RE
+cp, ls # wildcard
+```
+BASH中的万用字元和正则表示法中的星星号不同，后者为组合形态
+.*代表零个或多个任意字元
+
+开头、结尾、取反，下面一个例子是去除空白行和注释行
+
+```
+grep -v '^$' /etc/nginx/nginx.conf | grep -v '^#'
+```
+#### 工具
+
+awk, sed
+
 ## 第四部分 Linux使用者管理
 ### Linux账号管理与ACL权限控制
 #### UID与GID
@@ -43,3 +65,10 @@ absolute/relative path
 1. groups 有效与支援群组的观察
 2. newgrp 有效群组的更换
 3. 
+
+### 例行性工作排程(crontab)
+
+```
+# WSL
+sudo service cron start
+```
