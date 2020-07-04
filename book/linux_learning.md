@@ -1,4 +1,9 @@
+# Linux Learning
+
+> WSL: sudo su
+
 ## 第二部分 Linux档案、目录与磁碟格式
+
 ### Linux档案权限与目录配置
 |1|2|3|
 |---|---|---|
@@ -9,6 +14,7 @@
 |----|---|----|---|---|-----|---|
 |档案类型权限|连接数|拥有者|所属群组|档案容量|修改日期|档名|
 用途：
+
 - 系统保护
 - 团队开发软件或资料共用
 - 设定恰当的权限
@@ -66,9 +72,79 @@ awk, sed
 2. newgrp 有效群组的更换
 3. 
 
-### 例行性工作排程(crontab)
+### 例行性工作排程
+
+> 突发性(at)和例行性(crontab)
 
 ```
 # WSL
 sudo service cron start
+sudo /etc/init.d/cron restart
 ```
+
+- batch, 考虑工作负载的工作调度
+- anacron，处理非24小时一直启动的Linux系统的crontab的执行。
+
+### 软件安装
+
+```
+file /bin/bash
+```
+
+#### Build from source
+
+configure(建立makefile)+make
+
+.c compile .o assemble .out
+
+```bash
+//CFLAGS
+-c compile and not assemble
+-Wall detailed message
+-O optimization
+-o output
+//LIBS
+-lm libm.so or libm.a
+// after cd
+make linux test
+sudo make install
+make clean
+```
+
+动态和静态函数库
+
+```bash
+ldd/ldconfig
+```
+
+#### Install from binary 
+
+```bash
+tar -C /usr/local/ -xzf xx.tar.gz
+vi ~/.bashrc
+export PATH=$PATH:/usr/local/xx/bin
+```
+
+#### Verify
+
+```bash
+sha1sum
+md5sum
+sha256sum
+```
+
+#### 软件管理器
+
+> 用Ubuntu为主，主要用DPKG，在线升级机制APT
+
+### 程序管理
+
+```bash
+jobs -l
+fg
+bg
+kill
+ps -l(A) #自己bash程序
+ps aux #所有系统运行的程序
+```
+
