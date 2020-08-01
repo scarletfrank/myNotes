@@ -111,6 +111,16 @@ sudo make install
 make clean
 ```
 
+```bash
+LIBS = -lm
+OBJS = hello.o 
+CFLAGS = -Wall
+main: ${OBJS}
+	gcc -o $@ $(OBJS) ${LIBS}
+clean:
+	rm -f main ${OBJS}
+```
+
 动态和静态函数库
 
 ```bash
@@ -120,7 +130,7 @@ ldd/ldconfig
 #### Install from binary 
 
 ```bash
-tar -C /usr/local/ -xzf xx.tar.gz
+(sudo) tar -C /usr/local/ -xzf xx.tar.gz
 vi ~/.bashrc
 export PATH=$PATH:/usr/local/xx/bin
 ```
