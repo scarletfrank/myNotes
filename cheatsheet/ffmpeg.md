@@ -9,7 +9,7 @@
 裁剪, Trim
 
 ```bash
-ffmpeg -i input.mp4 -ss "hh:mm:ss" -to "hh:mm:ss" -c copyoutput.mp4
+ffmpeg -i input.mp4 -ss "hh:mm:ss" -to "hh:mm:ss" -c copy output.mp4
 ```
 
 转码x264
@@ -22,6 +22,22 @@ ffmpeg -i input.mp4 -c:v libx264 -crf 17 -c:a copy output.mp4
 
 ```
 ffprobe input.mp4
+```
+
+## youtube-dl
+
+> Usage: Youtube & Nico & Bilibili videos
+
+```
+youtube-dl URL --proxy 127.0.0.1:1080 -F
+youtube-dl URL --proxy 127.0.0.1:1080 -f 521(video)
+youtube-dl URL --proxy 127.0.0.1:1080 -f 177(audio)
+```
+
+合并音轨流和视频流
+
+```
+ffmpeg -i audio.webm -i video.mp4 -c:a copy -c:v copy output.mp4
 ```
 
 ## refs
