@@ -21,6 +21,7 @@ books & essays Reading
 ## TBD
 
 > 2020.7.27 重整一下这个Repository，先列下2020年的目标
+> 2021.1.2 服了，这个一直没更新。
 
 - CS类的Cheatsheet
     - ffmpeg，写一个类似小丸工具箱的？
