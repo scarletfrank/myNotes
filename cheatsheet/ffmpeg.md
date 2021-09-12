@@ -17,6 +17,7 @@ ffmpeg -i input.mp4 -ss "hh:mm:ss" -to "hh:mm:ss" -c copy output.mp4
 ffmpeg -i input.mp4 -c:v libx264 -crf 17 -c:a copy output.mp4
 ```
 
+
 - 查看视频信息
 
 ```
@@ -35,6 +36,14 @@ ffmpeg -ss 30 -t 3 -i input.mp4 -vf "fps=10,scale=320:-1:flags=lanczos,split[s0]
 - palettegen and paletteuse filters will generate and use a custom palette generated from your input. These filters have many options, so refer to the links for a list of all available options and values. Also see the Advanced options section below.
 - split filter will allow everything to be done in one command and avoids having to create a temporary PNG file of the palette.
 - Control looping with -loop output option but the values are confusing. A value of 0 is infinite looping, -1 is no looping, and 1 will loop once meaning it will play twice. So a value of 10 will cause the GIF to play 11 times.
+
+### 提取音频流
+
+```bash
+ffmpeg -i input-video.avi -vn -c:a  output-audio.aac
+
+```
+
 
 ## youtube-dl
 
